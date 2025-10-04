@@ -23,23 +23,20 @@ export class DataBindingPageComponent {
   }
 
 
-  addTask() {
-
-    if (this.text_field().trim()) {
-      this.messageError.set('Task name is required');
-      return;
-    }
-
-    const newTask: IndexTask = {
-      id: Date.now(),
-      name: this.text_field(),
-    };
-
-    this.tasks.update(tasks => [...tasks, newTask]);
-    this.resetTask();
-   
+addTask() {
+  if (!this.text_field().trim()) {
+    this.messageError.set('Task name is required');
+    return;
   }
 
+  const newTask: IndexTask = {
+    id: Date.now(),
+    name: this.text_field(),
+  };
+
+  this.tasks.update(tasks => [...tasks, newTask]);
+  this.resetTask();
+}
 
 
- }
+}

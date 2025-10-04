@@ -4,6 +4,8 @@ import { CounterPageComponent } from './pages/counter-page/counter-page.componen
 import { StructuralDirectivesPageComponent } from './pages/structural-directives-page/structural-directives-page.component';
 import { AttributeDirectivesPageComponent } from './pages/attribute-directives-page/attribute-directives-page.component';
 import { DataBindingPageComponent } from './pages/data-binding-page/data-binding-page.component';
+import { ServicePageComponent } from './pages/service-page/service-page.component';
+import { EduUTVTPageComponent } from './pages/EduUTVT-page/EduUTVT-page.component';
 
 export const routes: Routes = [
     {
@@ -25,6 +27,14 @@ export const routes: Routes = [
     {
         path: 'data-binding',
         component: DataBindingPageComponent
+    },
+    {
+        path: 'service',
+        component: ServicePageComponent
+    },
+    {
+        path: 'edu-utvt-page',
+        component: EduUTVTPageComponent
     },
     {
         path: '**',

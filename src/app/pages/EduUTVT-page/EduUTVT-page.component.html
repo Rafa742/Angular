@@ -1,0 +1,89 @@
+<div class="max-w-xl mx-auto mt-8 p-6 bg-white rounded shadow">
+  <h2 class="text-xl font-bold mb-4">@if(editando()){Editar} @else{Agregar} Curso</h2>
+  <form (submit)="guardarCurso(); $event.preventDefault()">
+    <div class="mb-2">
+      <label class="block">ID:</label>
+      <input type="number" class="border rounded w-full p-1"
+        #idField
+        (input)="id.set(+idField.value)"
+        [value]="id()"
+        required [readonly]="editando()">
+    </div>
+    <div class="mb-2">
+      <label class="block">Nombre:</label>
+      <input type="text" class="border rounded w-full p-1"
+        #nameField
+        (input)="name.set(nameField.value)"
+        [value]="name()"
+        required>
+    </div>
+    <div class="mb-2">
+      <label class="block">Duración (horas):</label>
+      <input type="number" class="border rounded w-full p-1"
+        #durationField
+        (input)="duration.set(+durationField.value)"
+        [value]="duration()"
+        required>
+    </div>
+    <div class="mb-2">
+      <label class="block">Nivel:</label>
+      <select class="border rounded w-full p-1"
+        #nivelField
+        (change)="nivel.set(castNivel(nivelField.value))"
+        [value]="nivel()">
+        <option value="Básico">Básico</option>
+        <option value="Intermedio">Intermedio</option>
+        <option value="Avanzado">Avanzado</option>
+      </select>
+    </div>
+    <div class="mb-2">
+      <label class="block">Cuatrimestre:</label>
+      <input type="number" class="border rounded w-full p-1"
+        #cuatrimestreField
+        (input)="cuatrimestre.set(+cuatrimestreField.value)"
+        [value]="cuatrimestre()"
+        required>
+    </div>
+    <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded mt-2">
+      @if(editando()){Guardar cambios} @else{Agregar}
+    </button>
+    @if(editando()){
+      <button type="button" class="ml-2 px-4 py-2 rounded bg-gray-300" (click)="resetForm()">Cancelar</button>
+    }
+  </form>
+
+  <hr class="my-6">
+
+  <label class="block text-sm/6 font-medium text-gray-900">Todos los cursos</label>
+  <div class="mt-5">
+    @if(cursos().length === 0){
+      <p class="text-sm text-gray-500">No hay cursos registrados</p>
+    }@else{
+      <ul class="space-y-2">
+        @for(curso of cursos(); track curso.id) {
+          <li class="px-3 py-1.5 rounded-lg shadow-md flex justify-between items-center bg-white hover:bg-gray-100 transition">
+            <span class="text-gray-800">
+              <strong>ID:</strong> {{ curso.id }} |
+              <strong>Nombre:</strong> {{ curso.name }} |
+              <strong>Duración:</strong> {{ curso.duration }}h |
+              <strong>Nivel:</strong> {{ curso.nivel }} |
+              <strong>Cuatrimestre:</strong> {{ curso.cuatrimestre }}
+            </span>
+            <span>
+              <button type="button" (click)="editarCurso(curso)"
+                class="mr-2 p-2 rounded-md text-blue-500 hover:text-blue-700 hover:bg-blue-50"
+                aria-label="Editar curso" title="Editar curso">
+                ✏️
+              </button>
+              <button type="button" (click)="eliminarCurso(curso.id)"
+                class="p-2 rounded-md text-gray-400 hover:text-red-600 hover:bg-red-50"
+                aria-label="Eliminar curso" title="Eliminar curso">
+                🗑️
+              </button>
+            </span>
+          </li>
+        }
+      </ul>
+    }
+  </div>
+</div>
