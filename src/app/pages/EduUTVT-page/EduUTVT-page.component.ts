@@ -42,24 +42,33 @@ export class EduUTVTPageComponent {
     this.editando.set(false);
   }
 
-  guardarCurso() {
-    const curso: Curso = {
-      id: this.id(),
-      name: this.name(),
-      duration: this.duration(),
-      nivel: this.nivel(),
-      cuatrimestre: this.cuatrimestre(),
-    };
+// ...existing code...
 
-    if (this.editando()) {
-      this.cursos.update(cursos =>
-        cursos.map(c => c.id === curso.id ? { ...curso } : c)
-      );
-    } else {
-      this.cursos.update(cursos => [...cursos, { ...curso }]);
-    }
-    this.resetForm();
+guardarCurso() {
+  if (this.duration() <= 0) {
+    alert('La duración debe ser mayor a 0');
+    return;
   }
+
+  const curso: Curso = {
+    id: this.id(),
+    name: this.name(),
+    duration: this.duration(),
+    nivel: this.nivel(),
+    cuatrimestre: this.cuatrimestre(),
+  };
+
+  if (this.editando()) {
+    this.cursos.update(cursos =>
+      cursos.map(c => c.id === curso.id ? { ...curso } : c)
+    );
+  } else {
+    this.cursos.update(cursos => [...cursos, { ...curso }]);
+  }
+  this.resetForm();
+}
+
+// ...existing code...
 
   editarCurso(curso: Curso) {
     this.id.set(curso.id);

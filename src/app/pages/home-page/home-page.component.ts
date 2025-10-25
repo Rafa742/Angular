@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class HomePageComponent { 
   message: string = 'Bienvenido a angular desde cero';
+
+  
 }

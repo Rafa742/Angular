@@ -1,0 +1,129 @@
+<div class="space-y-12">
+
+  <div class="border-b border-gray-900/10 pb-12">
+    <h2 class="text-base/7 font-semibold text-gray-900">Angular Pipes</h2>
+    <p class="mt-1 text-sm/6 text-gray-600">How do you use them?</p>
+
+    <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+      <div class="sm:col-span-3">
+        <label class="block text-sm/6 font-medium text-gray-900">Uppercase</label>
+        <div class="mt-2">
+          {{firstName()|  uppercase}}
+        </div>
+      </div>
+
+      <div class="sm:col-span-3">
+        <label class="block text-sm/6 font-medium text-gray-900">Lowercase</label>
+        <div class="mt-2">
+          {{lastName()| lowercase}}
+        </div>
+      </div>
+
+      <div class="sm:col-span-4">
+        <label for="email" class="block text-sm/6 font-medium text-gray-900">Json</label>
+        <div class="mt-2">
+          {{ user()| json }}
+        </div>
+      </div>
+
+      <div class="sm:col-span-3">
+        <label class="block text-sm/6 font-medium text-gray-900">Date: default</label>
+        <div class="mt-2">
+          {{ currentDate()| date }}
+        </div>
+      </div>
+
+      <div class="sm:col-span-3">
+        <label class="block text-sm/6 font-medium text-gray-900">Date: short</label>
+        <div class="mt-2">
+            {{ currentDate()| date: 'short' }}
+        </div>
+      </div>
+
+
+      <div class="sm:col-span-3">
+        <label class="block text-sm/6 font-medium text-gray-900">Date: medium</label>
+        <div class="mt-2">
+          {{ currentDate()| date: 'medium' }}
+        </div>
+      </div>
+
+
+      <div class="sm:col-span-3">
+        <label class="block text-sm/6 font-medium text-gray-900">Date: long date</label>
+        <div class="mt-2">
+         {{ currentDate()| date: 'longDate' }}
+        </div>
+      </div>
+
+      <div class="sm:col-span-3">
+        <label class="block text-sm/6 font-medium text-gray-900">Date: full date</label>
+        <div class="mt-2">
+          {{ currentDate()| date: 'fullDate' }}
+        </div>
+      </div>
+
+      <div class="sm:col-span-3">
+        <label class="block text-sm/6 font-medium text-gray-900">Date: custom date</label>
+        <div class="mt-2">
+          {{ currentDate()| date: 'dd/MM/yyyy HH:mm:ss Z' }}
+        </div>
+      </div>
+
+      <div class="sm:col-span-3">
+        <label class="block text-sm/6 font-medium text-gray-900">Date: UTC</label>
+        <div class="mt-2">
+          {{ currentDate()| date: 'dd/MM/yyyy HH:mm:ss Z': "UTC" }}
+        </div>
+      </div>
+
+      <div class="sm:col-span-3">
+        <label class="block text-sm/6 font-medium text-gray-900">Date: Specific time zone Europe/Madrid </label>
+        <div class="mt-2">
+           {{ currentDate()| date: 'dd/MM/yyyy HH:mm:ss Z': "Europe/Madrid" }}
+        </div>
+      </div>
+
+      <div class="sm:col-span-3">
+        <label class="block text-sm/6 font-medium text-gray-900">Date: Specific time zone Europe/Madrid </label>
+        <div class="mt-2">
+          
+        </div>
+      </div>
+
+      <div class="sm:col-span-3">
+        <label class="block text-sm/6 font-medium text-gray-900">Number </label>
+        <div class="mt-2">
+            {{ price()| number: '1.1-2' }}
+        </div>
+      </div>
+
+      <div class="sm:col-span-3">
+        <label class="block text-sm/6 font-medium text-gray-900">Currency: default </label>
+        <div class="mt-2">
+          {{ price()| currency }}
+        </div>
+      </div>
+
+      <div class="sm:col-span-3">
+        <label class="block text-sm/6 font-medium text-gray-900">Currency: EUR </label>
+        <div class="mt-2">
+          {{ price()| currency: "EUR" }} 
+        </div>
+      </div>
+
+      <div class="sm:col-span-3">
+        <label class="block text-sm/6 font-medium text-gray-900">Currency: USD </label>
+        <div class="mt-2">
+           {{ price()| currency: "USD" }}
+        </div>
+      </div>
+
+      <div class="sm:col-span-3">
+        <label class="block text-sm/6 font-medium text-gray-900">Percent </label>
+        <div class="mt-2">
+          {{ percent()| percent }}
+        </div>
+      </div>
+
+    </div>

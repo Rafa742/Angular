@@ -1,5 +1,4 @@
-
-<!-- Navbar --> 
+<!-- Navbar -->
 
 <div class="h-full w-full">
   <nav class="w-full mx-auto bg-white shadow">
@@ -39,46 +38,15 @@
           </h3>
         </div>
         <ul class="pr-12 xl:flex items-center h-full hidden font-medium">
-          <li class="hover:text-indigo-700 cursor-pointer h-full flex items-center text-sm text-gry-800 mx-5 tracking-normal" routerLinkActive="border-b-3 border-indigo-700">
-            <a routerLink="home">Home</a>
+          @for (menuOption of menuOptions; track $index) {
+          <li
+            class="hover:text-indigo-700 cursor-pointer h-full flex items-center text-sm text-gry-800 mx-5 tracking-normal"
+            routerLinkActive="border-b-3 border-indigo-700">
+            <a [routerLink]="menuOption.route" >{{ menuOption.label }}</a>
           </li>
-          <li
-            class="hover:text-indigo-700 cursor-pointer h-full flex items-center text-sm text-gry-800 mx-5 tracking-normal" rou
-            routerLinkActive="border-b-3 border-indigo-700">
-            <a routerLink="counter" routerLinkActive="router-link-active">Counter</a>
-          </li>   
-          <li
-            class="hover:text-indigo-700 cursor-pointer h-full flex items-center text-sm text-gry-800 mx-5 tracking-normal" rou
-            routerLinkActive="border-b-3 border-indigo-700">
-            <a routerLink="structural-directives" routerLinkActive="router-link-active">Structural Directives</a>
-          </li>  
-          <li
-            class="hover:text-indigo-700 cursor-pointer h-full flex items-center text-sm text-gry-800 mx-5 tracking-normal" rou
-            routerLinkActive="border-b-3 border-indigo-700">
-            <a routerLink="attribute-directives" routerLinkActive="router-link-active">Attribute Directives</a>
-          </li>
-          <li
-            class="hover:text-indigo-700 cursor-pointer h-full flex items-center text-sm text-gry-800 mx-5 tracking-normal" rou
-            routerLinkActive="border-b-3 border-indigo-700">
-            <a routerLink="data-binding" routerLinkActive="router-link-active">Data Binding</a>   
-          </li>
-          <li
-            class="hover:text-indigo-700 cursor-pointer h-full flex items-center text-sm text-gry-800 mx-5 tracking-normal" rou
-            routerLinkActive="border-b-3 border-indigo-700">
-            <a routerLink="service" routerLinkActive="router-link-active">Service</a>
-
-          </li>
-          <li
-            class="hover:text-indigo-700 cursor-pointer h-full flex items-center text-sm text-gry-800 mx-5 tracking-normal" rou
-            routerLinkActive="border-b-3 border-indigo-700">
-            <a routerLink="edu-utvt-page" routerLinkActive="router-link-active">Edu UTVT</a>
-
+        }
         </ul>
-        
-        
       </div>
     </div>
   </nav>
 </div>
-
-<!-- Nuevo estilo --> 
